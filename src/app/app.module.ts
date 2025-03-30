@@ -18,6 +18,7 @@ import { MessageService } from 'primeng/api';
 import { BlockUIModule } from 'primeng/blockui';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { MenubarModule } from 'primeng/menubar';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { MenubarModule } from 'primeng/menubar';
     CreateAccountComponent,
     SigninAccountComponent,
     VerifySigninacoountComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

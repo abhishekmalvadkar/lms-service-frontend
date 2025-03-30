@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoadingService } from './shared/loading.service';
 import { MenuItem } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,31 +10,13 @@ import { MenuItem } from 'primeng/api';
 })
 export class AppComponent {
   loading = false;
-  items: MenuItem[] | undefined;
 
-  constructor(private loadingService: LoadingService) { }
+  constructor(private loadingService: LoadingService, private router : Router) { }
 
   ngOnInit() {
     this.loadingService.loading.subscribe(state => {
       console.log(`Loading state changed to ${state}`);
       this.loading = state;
     });
-    this.items = [
-      {
-        label: 'Home',
-        icon: 'pi pi-home',
-        routerLink: 'link-list'
-      },
-      {
-        label: 'Links',
-        icon: 'pi pi-link',
-        routerLink: 'link-list'
-      },
-      {
-        label: 'Tags',
-        icon: 'pi pi-tag',
-        routerLink: 'tag-list'
-      }
-    ]
   }
 }

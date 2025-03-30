@@ -1,7 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../shared/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LocalStorageService } from '../../shared/local-storage.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class VerifySigninacoountComponent implements OnInit {
   verifySignInOtp = '';
   email: any = '';
 
-  constructor(private authSrvice: AuthService, private route: ActivatedRoute, private localStorageService : LocalStorageService) {
+  constructor(private authSrvice: AuthService, private route: ActivatedRoute, private localStorageService: LocalStorageService, private router: Router) {
 
   }
   ngOnInit(): void {
@@ -28,9 +28,12 @@ export class VerifySigninacoountComponent implements OnInit {
     console.log("verify======otp")
     this.authSrvice.verifySignInOtp({ email: this.email, otp: this.verifySignInOtp }).subscribe(
       (response) => {
-        if(response.success){
+        if (response.success) {
           console.log(response);
-          this.localStorageService.set('metaDetails',response.data);
+          this.localStorageService.set('metaDetails', response.data);
+          const redirectUrl = this.localStorageService.getAsValue('redirectAfterLogin') || '/';
+          this.localStorageService.remove('redirectAfterLogin'); // Clear stored route
+          this.router.navigate([redirectUrl]);
         }
       }
     )
