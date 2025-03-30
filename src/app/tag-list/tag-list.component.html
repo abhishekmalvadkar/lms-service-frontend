@@ -1,0 +1,15 @@
+       <h1>tags</h1>
+       <input type ="text" [(ngModel)] = 'searchText' (ngModelChange)="onSearchChange()" placeholder="search here">
+       <button routerLink="/add-tag">Add</button>
+      <div *ngFor="let tag of tags">
+          <p>{{tag.tagName}}</p>
+          <button (click)="onDeleteTag(tag.tagId)" class="m-left-10">Delete</button>
+      </div>
+      <div><br>
+        <button (click) ="onNext()"  *ngIf="isNextVisible">Next</button>
+        <button (click)="onPreviews()" *ngIf="isPreviewsVisible" class="m-left-10">Previous</button>
+        </div>
+
+
+
+

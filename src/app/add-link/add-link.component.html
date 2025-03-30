@@ -1,0 +1,27 @@
+<h1>Add Link</h1>
+<div class="mb-3 row">
+  <div class="col-md-6 form-group">
+    <input type="text" class="form-control" [(ngModel)]='addLinkRequest.title' placeholder="Enter title">
+  </div>
+</div>
+<div class="mb-3 row">
+  <div class="col-md-6">
+    <input type="text" class="form-control" [(ngModel)]='addLinkRequest.url' placeholder="Enter url">
+  </div>
+</div>
+<div class="mb-3 row">
+  <div class="col-md-6">
+    <p-multiSelect
+    [options]="tags"
+    styleClass="lms-multi-select"
+    [(ngModel)]="addLinkRequest.tagIds"
+    optionLabel="value"
+    optionValue="key"
+    placeholder="Select Tags" />
+  </div>
+</div>
+<div class="mb-3 row">
+  <div class="col-md-6">
+    <button class="btn btn-success" (click)='addLink()'>Add</button>
+  </div>
+</div>

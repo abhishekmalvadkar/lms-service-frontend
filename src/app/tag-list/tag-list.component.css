@@ -1,0 +1,21 @@
+.main-div {
+     height: 500px;
+     border : solid 2px black;
+}
+.menu {
+  /* margin-top: 10px; */
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  gap:1px;
+}
+
+.p-10{
+  padding: 10px;
+}
+
+.m-left-10{
+  margin-left:10px;
+}
+
+

@@ -1,0 +1,23 @@
+<div>
+  <input  type="text" [(ngModel)]='searchText' (ngModelChange)='onSearchChange()' placeholder="Search here">
+  <button [ngStyle]="{'margin-left':'10px'}" routerLink="/add-link">Add</button>
+</div>
+
+<div *ngFor="let link of links"><br>
+   <a [href]="link.url" target="_blank">{{link.title}}</a>
+   <div *ngFor="let tag of link.tags">
+       <p>{{tag.tagName}}</p>
+   </div>
+   <button (click)='onDeleteLink(link.linkId)'>delete</button><br>
+</div>
+<div><br>
+  <button (click)='onNext()' *ngIf='isShowNext'>Next</button>
+  <button (click)='onPreviews()' *ngIf='isShowPreviews'>Previous</button>
+</div>
+
+
+
+
+
+
+

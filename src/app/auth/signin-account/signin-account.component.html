@@ -1,0 +1,6 @@
+<p>signin-account works!</p>
+<div>
+  <input type="text" [(ngModel)]="signInRequest.email" placeholder="Enter the email"><br><br>
+  <button (click)="onSignIn()">signIn</button>
+  <a [routerLink]="['/create-account']">create new account</a>
+</div>
