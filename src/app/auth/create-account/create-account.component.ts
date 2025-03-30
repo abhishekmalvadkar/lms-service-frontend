@@ -1,6 +1,6 @@
+import { ToasterService } from './../../shared/toaster.service';
 import { Component } from '@angular/core';
 import { AuthService } from '../../shared/auth.service';
-import { MessageService } from 'primeng/api';
 import { LoadingService } from '../../shared/loading.service';
 
 @Component({
@@ -19,17 +19,9 @@ export class CreateAccountComponent {
   }
 
   constructor(private authService : AuthService,
-    private messageService: MessageService,
+    private toaster: ToasterService,
     private loadingService: LoadingService){
 
-  }
-
-  showSuccess(message : string) {
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: message });
-  }
-
-  showError(message : string) {
-    this.messageService.add({ severity: 'error', summary: 'Error', detail: message });
   }
 
   OnaddAccount(){
@@ -39,10 +31,10 @@ export class CreateAccountComponent {
         this.loadingService.hide();
         if (response.success == true) {
           console.log(response.data);
-        this.showSuccess(response.message);
+        this.toaster.success(response.message);
         } else {
           console.log(`error`, response.errors);
-          this.showError(response.errors[0]);
+          this.toaster.fail(response.errors[0]);
         }
 
       }

@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { LocalStorageService } from './../shared/local-storage.service';
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from 'primeng/api';
+import { ToasterService } from '../shared/toaster.service';
 
 @Component({
   selector: 'lms-logout',
@@ -12,12 +12,12 @@ export class LogoutComponent implements OnInit {
 
   constructor(private localStorageService : LocalStorageService,
     private router : Router,
-    private messageService: MessageService
+    private toaster: ToasterService
   ){}
 
   ngOnInit(): void {
     this.localStorageService.clear();
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Logged out successfully' });
+    this.toaster.success('Logged out successfully')
     this.router.navigate(['/sign-in']);
   }
 
