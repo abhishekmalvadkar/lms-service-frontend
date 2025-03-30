@@ -12,6 +12,7 @@ import { VerifySigninacoountComponent } from './auth/verify-signIn-otp/verify-si
 import { HomeComponent } from './home/home.component';
 import { authGuard } from './shared/auth.guard';
 import { authRedirectGuard } from './shared/auth-redirect.guard';
+import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
   {
@@ -23,7 +24,8 @@ const routes: Routes = [
       { path: 'add-tag', component: AddTagComponent },
       { path: 'tag-list', component: TagListComponent },
       { path: 'link-list', component: LinkListComponent },
-      { path: 'add-link', component: AddLinkComponent }
+      { path: 'add-link', component: AddLinkComponent },
+      { path: 'logout', component: LogoutComponent }
     ]
   },
   { path: 'sign-in', component: SigninAccountComponent, canActivate: [authRedirectGuard] },

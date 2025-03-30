@@ -19,6 +19,7 @@ import { BlockUIModule } from 'primeng/blockui';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { MenubarModule } from 'primeng/menubar';
 import { HomeComponent } from './home/home.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { HomeComponent } from './home/home.component';
     SigninAccountComponent,
     VerifySigninacoountComponent,
     HomeComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,

@@ -25,6 +25,11 @@ export class HomeComponent implements OnInit {
         label: 'Tags',
         icon: 'pi pi-tag',
         routerLink: 'tag-list'
+      },
+      {
+        label: 'Logout',
+        icon: 'pi pi-sign-out',
+        routerLink: 'logout'
       }
     ]
   }
